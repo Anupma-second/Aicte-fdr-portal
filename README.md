@@ -26,6 +26,30 @@ Open http://localhost:3000. These commands work from IntelliJ's terminal.
 
 **Using your own MySQL server instead:** create a database and put its address in `DATABASE_URL`. The private server is then skipped.
 
+## Run it on this computer (production mode)
+
+No online database or hosting is needed. One command sets up the private database, adds demo data if it's empty, builds the app and starts it:
+
+```bash
+npm run local
+```
+
+Open http://localhost:3000. Press Ctrl+C to stop, or run `npm run local:stop` if it's running in another window.
+
+Your data and uploaded files stay in `mysql-data/` and `uploads/` between runs. Only this computer can open the app, and logins work at `localhost`, not from other devices. The demo accounts box doesn't appear in this mode, so use the accounts listed below.
+
+## Deploy on Render
+
+Render needs a MySQL database somewhere else, such as Aiven. Use a database of its own for this project.
+
+- **Build command:** `npm install; npm run build`
+- **Start command:** `npm start`
+- **Environment:** `DATABASE_URL`, `JWT_SECRET`, `FILE_ENCRYPTION_KEY`, `STORAGE_DRIVER=database` and, for demo data, `DEMO_SEED=true`
+
+`STORAGE_DRIVER=database` keeps encrypted documents in MySQL, because the free plan wipes its disk on restart. `DEMO_SEED=true` adds demo data only when the database is empty. The demo accounts have a published password, so remove them before any real use.
+
+On the free plan the app sleeps when idle, so the 6:00 AM alert check won't run reliably. Admins can use **Run check now** instead.
+
 ## Environment variables
 
 | Variable | Required | Purpose |

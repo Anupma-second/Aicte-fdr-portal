@@ -541,3 +541,10 @@ model LoginAttempt {
   windowStart DateTime
   lockedUntil DateTime?
 }
+
+// Encrypted file contents, used only when STORAGE_DRIVER=database
+model StoredFile {
+  key       String   @id @db.VarChar(191)
+  data      Bytes    @db.LongBlob
+  createdAt DateTime @default(now())
+}

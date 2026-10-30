@@ -205,7 +205,8 @@
         "emailSmtp": "SMTP connected",
         "emailConsole": "Console only, SMTP not set",
         "ocrLocal": "Running on this server",
-        "storageLocal": "Local, encrypted"
+        "storageLocal": "Local, encrypted",
+        "storageDatabase": "In the database, encrypted"
       },
       "healthTitle": "System health",
       "healthNames": {

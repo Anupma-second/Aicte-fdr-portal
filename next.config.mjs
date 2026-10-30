@@ -9,6 +9,8 @@ const nextConfig = {
   // The home folder above this project is also a repo; pin tracing to the project.
   outputFileTracingRoot: path.dirname(fileURLToPath(import.meta.url)),
   poweredByHeader: false,
+  // Tests need dev-only packages, which production installs leave out.
+  typescript: { tsconfigPath: "tsconfig.build.json" },
   // Lets a production build be checked without disturbing a running dev server.
   distDir: process.env.NEXT_DIST_DIR ?? ".next",
   // These load their own worker files and data from disk, so they must not be bundled.

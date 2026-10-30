@@ -63,6 +63,7 @@ src/i18n/          next-intl request config
 
 ## Working rules
 
+- Hosting: local with `npm run local`, and Render (`npm start` runs `scripts/deploy-start.mjs`) with an external MySQL and `STORAGE_DRIVER=database`. Render installs production packages only, so anything needed to build or run must be in `dependencies`.
 - Work in phases and stop after each for review.
 - Don't commit unless asked.
 - Keep this file updated as the project grows.
@@ -74,6 +75,7 @@ npm run dev | build | typecheck | test
 npx prisma migrate dev
 npx prisma db seed
 npm run db:start | db:stop
+npm run local | local:stop                   (production mode on this computer, built into .next-local)
 node tests/live-check.mjs                    (app running, fresh seed)
 npx tsx --env-file=.env tests/db-check.ts
 npx tsx --env-file=.env tests/institution-check.ts   (app running, fresh seed)

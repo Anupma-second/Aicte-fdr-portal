@@ -71,6 +71,7 @@ async function resetDatabase() {
   await db.fdrEvent.deleteMany();
   await db.ocrExtraction.deleteMany();
   await db.fdrDocument.deleteMany();
+  await db.storedFile.deleteMany();
   await db.fdr.deleteMany();
   await db.auditLog.deleteMany();
   await db.auditChainHead.deleteMany();

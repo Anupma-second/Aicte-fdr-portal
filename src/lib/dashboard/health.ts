@@ -19,6 +19,7 @@ async function databaseCheck(): Promise<HealthCheck> {
 }
 
 async function storageCheck(): Promise<HealthCheck> {
+  if (getEnv().STORAGE_DRIVER === "database") return { key: "storage", state: "ok", value: null };
   try {
     await access(path.resolve(getEnv().UPLOAD_DIR), constants.W_OK);
     return { key: "storage", state: "ok", value: null };
@@ -49,7 +50,7 @@ export async function getSystemHealth(now = new Date()) {
       bank: getBankVerificationService().adapterName,
       email: env.SMTP_HOST ? "smtp" : "console",
       ocr: "local",
-      storage: "local",
+      storage: env.STORAGE_DRIVER,
     },
   };
 }

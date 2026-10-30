@@ -22,3 +22,4 @@ uploads/*
 # Private MySQL data
 mysql-data/
 .next-verify/
+.next-local/

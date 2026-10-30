@@ -39,7 +39,7 @@ export default async function AdminDashboard() {
     { key: "bank", state: "warning", value: t("integrationValues.bankMock") },
     { key: "email", state: health.integrations.email === "smtp" ? "ok" : "warning", value: t(health.integrations.email === "smtp" ? "integrationValues.emailSmtp" : "integrationValues.emailConsole") },
     { key: "ocr", state: "ok", value: t("integrationValues.ocrLocal") },
-    { key: "storage", state: "ok", value: t("integrationValues.storageLocal") },
+    { key: "storage", state: "ok", value: t(health.integrations.storage === "database" ? "integrationValues.storageDatabase" : "integrationValues.storageLocal") },
   ];
 
   function statusChip(state: HealthState, text: string) {

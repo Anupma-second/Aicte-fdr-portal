@@ -9,6 +9,7 @@ const envSchema = z.object({
     .string()
     .regex(/^[0-9a-fA-F]{64}$/, "must be exactly 64 hex characters (32 bytes for AES-256)"),
   UPLOAD_DIR: z.string().min(1).default("uploads"),
+  STORAGE_DRIVER: z.enum(["local", "database"]).default("local"),
   SMTP_HOST: z.string().optional(),
   SMTP_PORT: z.coerce.number().int().positive().default(587),
   SMTP_USER: z.string().optional(),

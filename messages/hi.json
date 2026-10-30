@@ -205,7 +205,8 @@
         "emailSmtp": "एसएमटीपी जुड़ा है",
         "emailConsole": "केवल कंसोल, एसएमटीपी सेट नहीं",
         "ocrLocal": "इसी सर्वर पर चल रहा है",
-        "storageLocal": "स्थानीय, एन्क्रिप्टेड"
+        "storageLocal": "स्थानीय, एन्क्रिप्टेड",
+        "storageDatabase": "डेटाबेस में, एन्क्रिप्टेड"
       },
       "healthTitle": "सिस्टम स्वास्थ्य",
       "healthNames": {
