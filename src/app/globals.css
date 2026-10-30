@@ -1,0 +1,224 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #f4f6fb;
+  --foreground: #0f1b3d;
+  --card: #ffffff;
+  --card-foreground: #0f1b3d;
+  --popover: #ffffff;
+  --popover-foreground: #0f1b3d;
+  --primary: #1d3fa8;
+  --primary-foreground: #ffffff;
+  --secondary: #e8edf8;
+  --secondary-foreground: #14275f;
+  --muted: #eef1f8;
+  --muted-foreground: #55617f;
+  --accent: #fff3df;
+  --accent-foreground: #7a4b00;
+  --gold: #e8960c;
+  --navy: #0d1b45;
+  --border: #dde3f0;
+  --input: #cdd5e6;
+  --ring: #2f55c9;
+  --sidebar: #0d1b45;
+  --sidebar-foreground: #dbe3f8;
+  --sidebar-muted: #93a3cf;
+  --sidebar-active: #1d3fa8;
+
+  /* Status colours: used only for status, never decoration */
+  --status-green: #0f7a43;
+  --status-green-bg: #e2f6ea;
+  --status-amber: #9a5b00;
+  --status-amber-bg: #fdf0d5;
+  --status-red: #b42323;
+  --status-red-bg: #fde8e8;
+  --status-blue: #1d3fa8;
+  --status-blue-bg: #e4eafb;
+  --status-grey: #55617f;
+  --status-grey-bg: #e9edf5;
+
+  --mesh-1: rgba(47, 85, 201, 0.13);
+  --mesh-2: rgba(232, 150, 12, 0.1);
+  --mesh-3: rgba(13, 27, 69, 0.07);
+  --shadow-soft: 0 1px 2px rgba(13, 27, 69, 0.05), 0 8px 24px rgba(13, 27, 69, 0.06);
+}
+
+.dark {
+  --background: #0a1230;
+  --foreground: #e7ecfa;
+  --card: #131d43;
+  --card-foreground: #e7ecfa;
+  --popover: #16224d;
+  --popover-foreground: #e7ecfa;
+  --primary: #5c82f0;
+  --primary-foreground: #08102b;
+  --secondary: #1d2a58;
+  --secondary-foreground: #dbe3f8;
+  --muted: #1a2650;
+  --muted-foreground: #a2afd2;
+  --accent: #3a2c10;
+  --accent-foreground: #ffcf7d;
+  --gold: #f4b13e;
+  --navy: #070d24;
+  --border: #26335f;
+  --input: #2f3d6e;
+  --ring: #7a9bf5;
+  --sidebar: #070d24;
+  --sidebar-foreground: #dbe3f8;
+  --sidebar-muted: #8c9bc6;
+  --sidebar-active: #2a48a8;
+
+  --status-green: #5ddb95;
+  --status-green-bg: #123a29;
+  --status-amber: #f6c264;
+  --status-amber-bg: #3f2e0d;
+  --status-red: #f79292;
+  --status-red-bg: #451a1f;
+  --status-blue: #a3bcfa;
+  --status-blue-bg: #1c2c62;
+  --status-grey: #a2afd2;
+  --status-grey-bg: #222e58;
+
+  --mesh-1: rgba(92, 130, 240, 0.16);
+  --mesh-2: rgba(244, 177, 62, 0.07);
+  --mesh-3: rgba(122, 155, 245, 0.08);
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-gold: var(--gold);
+  --color-navy: var(--navy);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-muted: var(--sidebar-muted);
+  --color-sidebar-active: var(--sidebar-active);
+  --color-status-green: var(--status-green);
+  --color-status-green-bg: var(--status-green-bg);
+  --color-status-amber: var(--status-amber);
+  --color-status-amber-bg: var(--status-amber-bg);
+  --color-status-red: var(--status-red);
+  --color-status-red-bg: var(--status-red-bg);
+  --color-status-blue: var(--status-blue);
+  --color-status-blue-bg: var(--status-blue-bg);
+  --color-status-grey: var(--status-grey);
+  --color-status-grey-bg: var(--status-grey-bg);
+  --font-sans: var(--font-inter), var(--font-devanagari), ui-sans-serif, system-ui, sans-serif;
+  --shadow-soft: var(--shadow-soft);
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+/* Soft mesh that sits behind every page */
+.bg-mesh {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(52rem 32rem at 95% -10%, var(--mesh-1), transparent 70%),
+    radial-gradient(40rem 26rem at -10% 25%, var(--mesh-2), transparent 70%),
+    radial-gradient(46rem 30rem at 60% 110%, var(--mesh-3), transparent 70%);
+  background-attachment: fixed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Slow drifting colour behind the landing hero and auth panel */
+.hero-mesh {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: linear-gradient(140deg, #070d24 0%, #0d1b45 45%, #14275f 100%);
+}
+.hero-mesh::before,
+.hero-mesh::after {
+  content: "";
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(70px);
+  animation: mesh-drift 18s ease-in-out infinite alternate;
+}
+.hero-mesh::before {
+  width: 42rem;
+  height: 42rem;
+  top: -14rem;
+  right: -10rem;
+  background: rgba(63, 104, 224, 0.5);
+}
+.hero-mesh::after {
+  width: 30rem;
+  height: 30rem;
+  bottom: -14rem;
+  left: -6rem;
+  background: rgba(232, 150, 12, 0.24);
+  animation-delay: -9s;
+}
+@keyframes mesh-drift {
+  to {
+    transform: translate3d(-4rem, 3rem, 0) scale(1.12);
+  }
+}
+
+/* Fine dot pattern for section backgrounds */
+.bg-dots {
+  background-image: radial-gradient(var(--border) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}

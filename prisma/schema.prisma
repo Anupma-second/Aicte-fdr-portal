@@ -1,0 +1,543 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  INSTITUTION
+  SCRUTINY_OFFICER
+  COMPETENT_AUTHORITY
+  ADMIN
+}
+
+enum UserStatus {
+  PENDING_APPROVAL
+  ACTIVE
+  SUSPENDED
+  REJECTED
+}
+
+enum InstitutionType {
+  ENGINEERING
+  MANAGEMENT
+  PHARMACY
+  ARCHITECTURE
+  POLYTECHNIC
+  OTHER
+}
+
+enum Region {
+  NORTH
+  SOUTH
+  EAST
+  WEST
+  CENTRAL
+  NORTH_EAST
+}
+
+enum FdrStatus {
+  SUBMITTED
+  UNDER_SCRUTINY
+  DISCREPANCY_RAISED
+  VERIFIED
+  ACTIVE
+  EXPIRING
+  MATURED
+  RENEWED
+  REPLACED
+  RELEASE_REQUESTED
+  RELEASED
+  CLOSED
+}
+
+enum TrustLevel {
+  SELF_DECLARED
+  DOCUMENT_VERIFIED
+  BANK_CONFIRMED
+}
+
+enum RiskLevel {
+  GREEN
+  AMBER
+  RED
+}
+
+enum DocumentType {
+  FDR_SCAN
+  COVERING_LETTER
+  BANK_LETTER
+  RENEWAL_PROOF
+  RELEASE_APPLICATION
+  OTHER
+}
+
+enum OcrStatus {
+  PENDING
+  COMPLETED
+  FAILED
+}
+
+enum FdrEventType {
+  SUBMITTED
+  DOCUMENT_UPLOADED
+  OCR_RUN
+  DISCREPANCY_RAISED
+  DISCREPANCY_RESOLVED
+  OBSERVATION_ADDED
+  BANK_VERIFICATION
+  VERIFIED
+  STATUS_CHANGED
+  ALERT_SENT
+  ESCALATED
+  RENEWED
+  REPLACED
+  RELEASE_REQUESTED
+  RELEASE_DECISION
+  RELEASED
+  CLOSED
+}
+
+enum DiscrepancyType {
+  MISSING_FIELD
+  MISSING_DOCUMENT
+  MATURITY_BEFORE_ISSUE
+  AMOUNT_MISMATCH
+  DUPLICATE_FDR_NUMBER
+  BANK_MISMATCH
+  OTHER
+}
+
+enum DiscrepancySeverity {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum DiscrepancyStatus {
+  OPEN
+  RESPONDED
+  RESOLVED
+  WAIVED
+}
+
+enum DiscrepancySource {
+  SYSTEM
+  OFFICER
+}
+
+enum ReleaseStatus {
+  REQUESTED
+  DOCUMENT_CHECK
+  SCRUTINY
+  AUTHORITY_APPROVAL
+  APPROVED
+  REJECTED
+  CLOSED
+}
+
+enum RenewalType {
+  RENEWAL
+  REPLACEMENT
+}
+
+enum NotificationChannel {
+  IN_APP
+  EMAIL
+}
+
+enum NotificationKind {
+  REMINDER
+  ESCALATION
+  DISCREPANCY
+  RELEASE
+  ACCOUNT
+  SYSTEM
+}
+
+enum EmailStatus {
+  NOT_APPLICABLE
+  PENDING
+  SENT
+  LOGGED
+  FAILED
+}
+
+enum AlertRuleKind {
+  REMINDER
+  ESCALATION
+}
+
+enum EscalationLevel {
+  INSTITUTION
+  SCRUTINY_OFFICER
+  COMPETENT_AUTHORITY
+}
+
+enum BankVerificationResult {
+  CONFIRMED
+  NOT_FOUND
+  MISMATCH
+  ERROR
+}
+
+model User {
+  id            String     @id @default(cuid())
+  email         String     @unique @db.VarChar(191)
+  passwordHash  String     @db.VarChar(100)
+  name          String     @db.VarChar(120)
+  phone         String?    @db.VarChar(20)
+  role          Role
+  status        UserStatus @default(PENDING_APPROVAL)
+  tokenVersion  Int        @default(0) // bump to invalidate issued JWTs
+  lastLoginAt   DateTime?
+  institutionId String?
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  institution           Institution?          @relation(fields: [institutionId], references: [id])
+  submittedFdrs         Fdr[]                 @relation("FdrSubmittedBy")
+  assignedFdrs          Fdr[]                 @relation("FdrAssignedOfficer")
+  uploadedDocuments     FdrDocument[]
+  events                FdrEvent[]
+  raisedDiscrepancies   Discrepancy[]         @relation("DiscrepancyRaisedBy")
+  resolvedDiscrepancies Discrepancy[]         @relation("DiscrepancyResolvedBy")
+  observations          ScrutinyObservation[]
+  releaseRequests       ReleaseRequest[]      @relation("ReleaseRequestedBy")
+  releaseDecisions      ReleaseRequest[]      @relation("ReleaseDecidedBy")
+  notifications         Notification[]
+  escalationsToMe       EscalationLog[]
+  auditLogs             AuditLog[]
+  bankChecks            BankVerificationLog[]
+
+  @@index([role, status])
+  @@index([institutionId])
+}
+
+model Institution {
+  id           String          @id @default(cuid())
+  aicteCode    String          @unique @db.VarChar(30)
+  name         String          @db.VarChar(200)
+  type         InstitutionType
+  addressLine  String?         @db.VarChar(255)
+  city         String          @db.VarChar(100)
+  state        String          @db.VarChar(60)
+  region       Region
+  contactName  String?         @db.VarChar(120)
+  contactEmail String?         @db.VarChar(191)
+  contactPhone String?         @db.VarChar(20)
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+
+  users User[]
+  fdrs  Fdr[]
+
+  @@index([state])
+  @@index([region])
+}
+
+model Fdr {
+  id            String     @id @default(cuid())
+  referenceNo   String     @unique @db.VarChar(24) // portal reference, globally unique
+  fdrNumber     String     @db.VarChar(40) // bank's number, may repeat across institutions
+  institutionId String
+  bankName      String     @db.VarChar(120)
+  branchName    String     @db.VarChar(120)
+  ifscCode      String?    @db.VarChar(11)
+  amount        Decimal    @db.Decimal(14, 2)
+  issueDate     DateTime   @db.Date
+  maturityDate  DateTime   @db.Date
+  status        FdrStatus  @default(SUBMITTED)
+  trustLevel    TrustLevel @default(SELF_DECLARED)
+
+  // Cached so the officer queue can sort by risk in SQL; recomputed by lib/fdr/risk.ts
+  riskScore   Int       @default(0)
+  riskLevel   RiskLevel @default(GREEN)
+  riskReasons Json?
+
+  submittedById     String
+  assignedOfficerId String?
+  submittedAt       DateTime  @default(now())
+  verifiedAt        DateTime?
+  slaDueAt          DateTime?
+  statusChangedAt   DateTime  @default(now())
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  institution     Institution @relation(fields: [institutionId], references: [id])
+  submittedBy     User        @relation("FdrSubmittedBy", fields: [submittedById], references: [id])
+  assignedOfficer User?       @relation("FdrAssignedOfficer", fields: [assignedOfficerId], references: [id])
+
+  documents         FdrDocument[]
+  events            FdrEvent[]
+  discrepancies     Discrepancy[]
+  observations      ScrutinyObservation[]
+  releaseRequests   ReleaseRequest[]
+  renewedTo         RenewalLink?          @relation("RenewalOld")
+  renewedFrom       RenewalLink?          @relation("RenewalNew")
+  notifications     Notification[]
+  escalations       EscalationLog[]
+  bankVerifications BankVerificationLog[]
+
+  @@unique([institutionId, fdrNumber])
+  @@index([fdrNumber]) // duplicate detection across institutions
+  @@index([maturityDate])
+  @@index([status])
+  @@index([status, maturityDate])
+  @@index([riskLevel, riskScore])
+  @@index([assignedOfficerId, status])
+  @@index([submittedById])
+}
+
+model FdrDocument {
+  id           String       @id @default(cuid())
+  fdrId        String
+  type         DocumentType
+  version      Int          @default(1)
+  isCurrent    Boolean      @default(true)
+  originalName String       @db.VarChar(255)
+  mimeType     String       @db.VarChar(100)
+  sizeBytes    Int
+  storageKey   String       @unique @db.VarChar(191)
+  sha256       String       @db.Char(64) // hash of the plaintext
+  iv           String       @db.VarChar(32)
+  authTag      String       @db.VarChar(32) // AES-256-GCM
+  uploadedById String
+  createdAt    DateTime     @default(now())
+
+  fdr        Fdr            @relation(fields: [fdrId], references: [id])
+  uploadedBy User           @relation(fields: [uploadedById], references: [id])
+  ocr        OcrExtraction?
+
+  @@unique([fdrId, type, version])
+  @@index([fdrId, isCurrent])
+  @@index([uploadedById])
+}
+
+// What the document says, kept apart from what the institution declared on Fdr
+model OcrExtraction {
+  id           String    @id @default(cuid())
+  documentId   String    @unique
+  status       OcrStatus @default(PENDING)
+  rawText      String?   @db.Text
+  fdrNumber    String?   @db.VarChar(40)
+  bankName     String?   @db.VarChar(120)
+  branchName   String?   @db.VarChar(120)
+  amount       Decimal?  @db.Decimal(14, 2)
+  issueDate    DateTime? @db.Date
+  maturityDate DateTime? @db.Date
+  confidence   Float?
+  createdAt    DateTime  @default(now())
+
+  document FdrDocument @relation(fields: [documentId], references: [id])
+}
+
+model FdrEvent {
+  id         String       @id @default(cuid())
+  fdrId      String
+  type       FdrEventType
+  title      String       @db.VarChar(200)
+  detail     String?      @db.Text
+  metadata   Json?
+  actorId    String? // null = system
+  occurredAt DateTime     @default(now())
+
+  fdr   Fdr   @relation(fields: [fdrId], references: [id])
+  actor User? @relation(fields: [actorId], references: [id])
+
+  @@index([fdrId, occurredAt])
+  @@index([actorId])
+}
+
+model Discrepancy {
+  id             String              @id @default(cuid())
+  fdrId          String
+  type           DiscrepancyType
+  severity       DiscrepancySeverity @default(MEDIUM)
+  status         DiscrepancyStatus   @default(OPEN)
+  source         DiscrepancySource   @default(SYSTEM)
+  field          String?             @db.VarChar(60)
+  declaredValue  String?             @db.VarChar(255)
+  extractedValue String?             @db.VarChar(255)
+  message        String              @db.Text
+  response       String?             @db.Text
+  respondedAt    DateTime?
+  raisedById     String?
+  resolvedById   String?
+  resolvedAt     DateTime?
+  createdAt      DateTime            @default(now())
+
+  fdr        Fdr   @relation(fields: [fdrId], references: [id])
+  raisedBy   User? @relation("DiscrepancyRaisedBy", fields: [raisedById], references: [id])
+  resolvedBy User? @relation("DiscrepancyResolvedBy", fields: [resolvedById], references: [id])
+
+  @@index([fdrId, status])
+  @@index([status, createdAt])
+  @@index([type])
+  @@index([raisedById])
+  @@index([resolvedById])
+}
+
+model ScrutinyObservation {
+  id        String   @id @default(cuid())
+  fdrId     String
+  officerId String
+  note      String   @db.Text
+  createdAt DateTime @default(now())
+
+  fdr     Fdr  @relation(fields: [fdrId], references: [id])
+  officer User @relation(fields: [officerId], references: [id])
+
+  @@index([fdrId, createdAt])
+  @@index([officerId])
+}
+
+model ReleaseRequest {
+  id            String        @id @default(cuid())
+  fdrId         String
+  status        ReleaseStatus @default(REQUESTED)
+  reason        String        @db.Text
+  requestedById String
+  decidedById   String?
+  decisionNote  String?       @db.Text
+  requestedAt   DateTime      @default(now())
+  decidedAt     DateTime?
+  closedAt      DateTime?
+  updatedAt     DateTime      @updatedAt
+
+  fdr         Fdr   @relation(fields: [fdrId], references: [id])
+  requestedBy User  @relation("ReleaseRequestedBy", fields: [requestedById], references: [id])
+  decidedBy   User? @relation("ReleaseDecidedBy", fields: [decidedById], references: [id])
+
+  @@index([fdrId])
+  @@index([status, requestedAt])
+  @@index([requestedById])
+  @@index([decidedById])
+}
+
+model RenewalLink {
+  id        String      @id @default(cuid())
+  oldFdrId  String      @unique
+  newFdrId  String      @unique
+  type      RenewalType
+  note      String?     @db.VarChar(255)
+  createdAt DateTime    @default(now())
+
+  oldFdr Fdr @relation("RenewalOld", fields: [oldFdrId], references: [id])
+  newFdr Fdr @relation("RenewalNew", fields: [newFdrId], references: [id])
+}
+
+model Notification {
+  id          String              @id @default(cuid())
+  userId      String
+  fdrId       String?
+  kind        NotificationKind
+  channel     NotificationChannel @default(IN_APP)
+  title       String              @db.VarChar(200)
+  body        String              @db.Text
+  link        String?             @db.VarChar(255)
+  emailStatus EmailStatus         @default(NOT_APPLICABLE)
+  dedupeKey   String?             @unique @db.VarChar(191) // stops the daily job re-sending, e.g. fdrId:rule:user
+  readAt      DateTime?
+  createdAt   DateTime            @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+  fdr  Fdr? @relation(fields: [fdrId], references: [id])
+
+  @@index([userId, readAt, createdAt])
+  @@index([fdrId])
+}
+
+model AlertRule {
+  id          String          @id @default(cuid())
+  kind        AlertRuleKind
+  // REMINDER: days before maturity. ESCALATION: days overdue.
+  days        Int
+  targetLevel EscalationLevel
+  isActive    Boolean         @default(true)
+  updatedById String?
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  escalations EscalationLog[]
+
+  @@unique([kind, days, targetLevel])
+  @@index([kind, isActive])
+}
+
+model EscalationLog {
+  id          String           @id @default(cuid())
+  fdrId       String
+  ruleId      String?
+  fromLevel   EscalationLevel?
+  toLevel     EscalationLevel
+  toUserId    String?
+  daysOverdue Int
+  note        String?          @db.VarChar(255)
+  createdAt   DateTime         @default(now())
+
+  fdr    Fdr        @relation(fields: [fdrId], references: [id])
+  rule   AlertRule? @relation(fields: [ruleId], references: [id])
+  toUser User?      @relation(fields: [toUserId], references: [id])
+
+  @@index([fdrId, createdAt])
+  @@index([ruleId])
+  @@index([toUserId])
+}
+
+model AuditLog {
+  id         BigInt   @id @default(autoincrement())
+  occurredAt DateTime @default(now()) @db.DateTime(3)
+  actorId    String? // null = system
+  actorLabel String   @db.VarChar(191)
+  action     String   @db.VarChar(80)
+  entityType String   @db.VarChar(40)
+  entityId   String?  @db.VarChar(40)
+  payload    String   @db.LongText // canonical JSON string; MySQL's JSON type would reorder keys
+  prevHash   String   @db.Char(64)
+  hash       String   @unique @db.Char(64)
+
+  actor User? @relation(fields: [actorId], references: [id], onDelete: Restrict)
+
+  @@index([entityType, entityId])
+  @@index([actorId])
+  @@index([occurredAt])
+  @@index([action])
+}
+
+// One row: locked FOR UPDATE on each append so concurrent writers can't fork the chain
+model AuditChainHead {
+  id       Int    @id @default(1)
+  lastHash String @db.Char(64)
+}
+
+model BankVerificationLog {
+  id                    String                 @id @default(cuid())
+  fdrId                 String
+  adapter               String                 @default("mock") @db.VarChar(40)
+  result                BankVerificationResult
+  // What the bank source returned; the third source next to declared and OCR values
+  confirmedAmount       Decimal?               @db.Decimal(14, 2)
+  confirmedMaturityDate DateTime?              @db.Date
+  responsePayload       Json?
+  requestedById         String
+  createdAt             DateTime               @default(now())
+
+  fdr         Fdr  @relation(fields: [fdrId], references: [id])
+  requestedBy User @relation(fields: [requestedById], references: [id])
+
+  @@index([fdrId, createdAt])
+  @@index([requestedById])
+}
+
+// Survives server restarts; key is a hash of IP + email, or of the email alone
+model LoginAttempt {
+  id          String    @id @default(cuid())
+  key         String    @unique @db.VarChar(191)
+  count       Int       @default(0)
+  windowStart DateTime
+  lockedUntil DateTime?
+}

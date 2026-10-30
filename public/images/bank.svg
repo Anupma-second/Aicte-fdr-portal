@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Bank building">
+  <circle cx="100" cy="100" r="90" fill="#3f68e0" opacity=".1"/>
+  <path d="M100 30l70 38H30z" fill="#1d3fa8"/>
+  <circle cx="100" cy="54" r="8" fill="#e8960c"/>
+  <rect x="38" y="72" width="124" height="10" rx="3" fill="#14275f"/>
+  <g fill="#6f90ea"><rect x="48" y="86" width="14" height="58" rx="3"/><rect x="79" y="86" width="14" height="58" rx="3"/><rect x="107" y="86" width="14" height="58" rx="3"/><rect x="138" y="86" width="14" height="58" rx="3"/></g>
+  <rect x="38" y="148" width="124" height="10" rx="3" fill="#14275f"/>
+  <rect x="26" y="160" width="148" height="12" rx="3" fill="#1d3fa8"/>
+</svg>

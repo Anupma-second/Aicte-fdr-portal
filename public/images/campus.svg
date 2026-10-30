@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" role="img" aria-label="Illustrated college campus">
+  <circle cx="380" cy="70" r="34" fill="#e8960c" opacity=".85"/>
+  <path d="M0 240c70-34 150-44 240-30s170 8 240-20v110H0z" fill="#3f68e0" opacity=".28"/>
+  <g fill="#ffffff" opacity=".95">
+    <rect x="130" y="128" width="220" height="112" rx="4"/>
+    <path d="M240 70l126 58H114z"/>
+  </g>
+  <rect x="222" y="44" width="4" height="34" fill="#ffd27a"/>
+  <path d="M226 44l30 9-30 9z" fill="#e8960c"/>
+  <g fill="#1d3fa8">
+    <rect x="150" y="144" width="22" height="30" rx="2"/><rect x="186" y="144" width="22" height="30" rx="2"/><rect x="272" y="144" width="22" height="30" rx="2"/><rect x="308" y="144" width="22" height="30" rx="2"/>
+    <rect x="150" y="190" width="22" height="30" rx="2"/><rect x="186" y="190" width="22" height="30" rx="2"/><rect x="272" y="190" width="22" height="30" rx="2"/><rect x="308" y="190" width="22" height="30" rx="2"/>
+    <path d="M222 240v-62a18 18 0 0136 0v62z"/>
+  </g>
+  <circle cx="240" cy="108" r="11" fill="#e8960c"/>
+  <g fill="#6f90ea"><circle cx="82" cy="196" r="28"/><circle cx="404" cy="190" r="32"/></g>
+  <g fill="#14275f"><rect x="78" y="212" width="8" height="34"/><rect x="400" y="212" width="8" height="34"/></g>
+  <path d="M0 246c80-14 160-16 240-10s170 6 240-10v74H0z" fill="#14275f" opacity=".75"/>
+</svg>

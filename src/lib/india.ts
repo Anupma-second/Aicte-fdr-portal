@@ -1,0 +1,43 @@
+import type { Region } from "@prisma/client";
+
+/** States and union territories, grouped into the regions used for reporting. */
+export const STATE_REGIONS: Record<string, Region> = {
+  "Andaman and Nicobar Islands": "EAST",
+  "Andhra Pradesh": "SOUTH",
+  "Arunachal Pradesh": "NORTH_EAST",
+  Assam: "NORTH_EAST",
+  Bihar: "EAST",
+  Chandigarh: "NORTH",
+  Chhattisgarh: "CENTRAL",
+  "Dadra and Nagar Haveli and Daman and Diu": "WEST",
+  Delhi: "NORTH",
+  Goa: "WEST",
+  Gujarat: "WEST",
+  Haryana: "NORTH",
+  "Himachal Pradesh": "NORTH",
+  "Jammu and Kashmir": "NORTH",
+  Jharkhand: "EAST",
+  Karnataka: "SOUTH",
+  Kerala: "SOUTH",
+  Ladakh: "NORTH",
+  Lakshadweep: "SOUTH",
+  "Madhya Pradesh": "CENTRAL",
+  Maharashtra: "WEST",
+  Manipur: "NORTH_EAST",
+  Meghalaya: "NORTH_EAST",
+  Mizoram: "NORTH_EAST",
+  Nagaland: "NORTH_EAST",
+  Odisha: "EAST",
+  Puducherry: "SOUTH",
+  Punjab: "NORTH",
+  Rajasthan: "NORTH",
+  Sikkim: "NORTH_EAST",
+  "Tamil Nadu": "SOUTH",
+  Telangana: "SOUTH",
+  Tripura: "NORTH_EAST",
+  "Uttar Pradesh": "NORTH",
+  Uttarakhand: "NORTH",
+  "West Bengal": "EAST",
+};
+
+export const STATES = Object.keys(STATE_REGIONS);

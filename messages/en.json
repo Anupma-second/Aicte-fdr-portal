@@ -1,0 +1,1157 @@
+{
+  "app": {
+    "name": "AICTE Security Deposit & FDR Portal",
+    "shortName": "FDR Portal",
+    "bureau": "AICTE Regulation Bureau",
+    "tagline": "One secure place to submit, verify, monitor and release security deposits."
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "fdrs": "FDRs",
+    "calendar": "Maturity calendar",
+    "reports": "Reports",
+    "audit": "Audit log",
+    "notifications": "Notifications",
+    "users": "Users"
+  },
+  "shell": {
+    "search": "Search FDRs",
+    "mainNav": "Main navigation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "collapseSidebar": "Collapse sidebar",
+    "expandSidebar": "Expand sidebar",
+    "switchLanguage": "Switch language",
+    "languageFailed": "Couldn't change the language. Please try again.",
+    "toggleTheme": "Switch between light and dark",
+    "notificationsCount": "Notifications, {count} unread",
+    "profileMenu": "Profile menu",
+    "logout": "Log out",
+    "logoutFailed": "Couldn't log out. Please try again.",
+    "myAccount": "My account",
+    "skipToContent": "Skip to main content"
+  },
+  "roles": {
+    "INSTITUTION": "Institution",
+    "SCRUTINY_OFFICER": "Scrutiny Officer",
+    "COMPETENT_AUTHORITY": "Competent Authority",
+    "ADMIN": "Administrator"
+  },
+  "status": {
+    "SUBMITTED": "Submitted",
+    "UNDER_SCRUTINY": "Under scrutiny",
+    "DISCREPANCY_RAISED": "Discrepancy raised",
+    "VERIFIED": "Verified",
+    "ACTIVE": "Active",
+    "EXPIRING": "Expiring",
+    "MATURED": "Matured",
+    "RENEWED": "Renewed",
+    "REPLACED": "Replaced",
+    "RELEASE_REQUESTED": "Release requested",
+    "RELEASED": "Released",
+    "CLOSED": "Closed"
+  },
+  "trust": {
+    "SELF_DECLARED": "Self-declared",
+    "DOCUMENT_VERIFIED": "Document-verified",
+    "BANK_CONFIRMED": "Bank-confirmed"
+  },
+  "risk": {
+    "GREEN": "Low",
+    "AMBER": "Medium",
+    "RED": "High",
+    "noReasons": "No risk factors at the moment.",
+    "reason": {
+      "OVERDUE": "Matured {value} days ago",
+      "MATURES_WITHIN_7": "Matures in {value} days",
+      "MATURES_WITHIN_30": "Matures in {value} days",
+      "MATURES_WITHIN_60": "Matures in {value} days",
+      "MATURES_WITHIN_90": "Matures in {value} days",
+      "MISSING_DOCUMENTS": "{value} required documents missing",
+      "PAST_DELAYS": "{value} past delays",
+      "OPEN_DISCREPANCIES": "{value} open discrepancies",
+      "DISCREPANCY_HISTORY": "{value} earlier discrepancies"
+    }
+  },
+  "fdrTable": {
+    "reference": "Reference",
+    "institution": "Institution",
+    "maturity": "Maturity",
+    "status": "Status",
+    "trust": "Trust",
+    "risk": "Risk"
+  },
+  "forbidden": {
+    "title": "You don't have access to this page",
+    "description": "This page is for a different role. If you think that's wrong, contact your administrator.",
+    "home": "Go to home page"
+  },
+  "dashboards": {
+    "institution": {
+      "title": "Institution dashboard",
+      "myFdrs": "My FDRs",
+      "amountHeld": "Amount held",
+      "maturing90": "Maturing in 90 days",
+      "openDiscrepancies": "Open discrepancies",
+      "upcomingTitle": "Maturity countdown",
+      "upcomingHint": "Your FDRs that mature soonest.",
+      "noFdrs": "You haven't submitted any FDRs yet.",
+      "daysLeft": "{days} days left",
+      "overdueBy": "{days} days overdue",
+      "submitNew": "Submit new FDR",
+      "uploadScan": "Upload the FDR scan",
+      "actionsTitle": "Pending actions",
+      "actionsHint": "Things waiting on your institution.",
+      "actionsEmpty": "Nothing is waiting on you.",
+      "moreActions": "{count} more in your FDR list.",
+      "checklistTitle": "Document checklist",
+      "checklistHint": "Across the FDRs you currently hold.",
+      "ofFdrs": "{have} of {total}",
+      "releaseTitle": "Release requests",
+      "releaseEmpty": "You have no release requests.",
+      "notificationsTitle": "Latest notifications",
+      "notificationsEmpty": "No notifications yet."
+    },
+    "officer": {
+      "title": "Scrutiny officer dashboard",
+      "caseload": "Your caseload: {count} open cases",
+      "pending": "Pending verification",
+      "discrepancies": "Open discrepancies",
+      "missingDocs": "Missing documents",
+      "slaBreached": "Past SLA",
+      "queueTitle": "Needs action today",
+      "queueHint": "Your cases and unassigned ones, highest risk first. Hover over a risk level to see why.",
+      "queueEmpty": "Nothing needs action right now.",
+      "sla": "SLA",
+      "slaNone": "None",
+      "slaLeft": "{days} days left",
+      "slaOverdue": "{days} days over",
+      "respondedTitle": "Discrepancy responses to review",
+      "respondedHint": "Institutions have answered these.",
+      "respondedEmpty": "No responses are waiting for review.",
+      "missingTitle": "FDRs missing a scan",
+      "missingEmpty": "Every open case has a scan.",
+      "releasesTitle": "Release requests to process",
+      "releasesEmpty": "No release requests are waiting for you."
+    },
+    "authority": {
+      "title": "Competent authority dashboard",
+      "totalFdrs": "Total FDRs",
+      "amountHeld": "Amount held",
+      "overdue": "Overdue",
+      "awaitingApproval": "Awaiting your approval",
+      "byStatus": "FDRs by status",
+      "approvalsTitle": "Release approval queue",
+      "approvalsEmpty": "No releases are waiting for your decision.",
+      "kpiTitle": "Key indicators",
+      "kpiTurnaround": "Verification turnaround",
+      "kpiTurnaroundHint": "Average time from submission to verification",
+      "kpiDays": "{days} days",
+      "kpiCaught": "Cases caught early",
+      "kpiCaughtHint": "Discrepancies found before an FDR was verified",
+      "kpiHours": "Manual hours saved (est.)",
+      "kpiHoursHint": "An estimate of {hours} hours per FDR",
+      "groups": {
+        "active": "Active",
+        "expiring": "Expiring",
+        "matured": "Matured",
+        "renewed": "Renewed",
+        "released": "Released",
+        "pending": "Pending"
+      },
+      "regionTitle": "Amount held by region",
+      "regionHint": "Deposits not yet renewed, released or closed.",
+      "stateTitle": "Top states by amount held",
+      "stateHint": "The 8 states holding the most.",
+      "trendTitle": "Verification turnaround trend",
+      "trendHint": "Average days to verify, by the month of verification. Synthetic demo data.",
+      "trendTooltip": "{days} days, {cases} cases",
+      "viewTable": "View as table",
+      "region": "Region",
+      "state": "State",
+      "fdrCount": "FDRs",
+      "month": "Month",
+      "averageDays": "Average days",
+      "cases": "Cases",
+      "overdueTitle": "Overdue cases",
+      "overdueEmpty": "No FDRs are overdue.",
+      "daysOverdue": "{days} days overdue",
+      "escalatedTitle": "Escalated to you",
+      "escalatedHint": "Overdue cases that reached the top of the ladder.",
+      "escalatedEmpty": "Nothing has been escalated to you."
+    },
+    "admin": {
+      "title": "Admin dashboard",
+      "users": "Users",
+      "institutions": "Institutions",
+      "pendingApprovals": "Pending approvals",
+      "auditEntries": "Audit entries",
+      "pendingTitle": "Institutions awaiting approval",
+      "pendingHint": "Approve an institution so it can log in.",
+      "pendingEmpty": "No accounts are waiting for approval.",
+      "manageUsers": "Users and roles",
+      "manageUsersHint": "Add staff, change roles, suspend accounts.",
+      "auditLink": "Audit log",
+      "auditLinkHint": "Browse the trail and verify its integrity.",
+      "integrationsTitle": "Integrations",
+      "integrationNames": {
+        "bank": "Bank verification",
+        "email": "Email",
+        "ocr": "OCR",
+        "storage": "Document storage"
+      },
+      "integrationValues": {
+        "bankMock": "Simulated, no real bank",
+        "emailSmtp": "SMTP connected",
+        "emailConsole": "Console only, SMTP not set",
+        "ocrLocal": "Running on this server",
+        "storageLocal": "Local, encrypted"
+      },
+      "healthTitle": "System health",
+      "healthNames": {
+        "database": "Database",
+        "storage": "Upload folder",
+        "alertJob": "Daily alert check"
+      },
+      "healthStates": {
+        "ok": "Working",
+        "warning": "Needs a look",
+        "error": "Not working"
+      },
+      "lastRun": "Last ran on {date}",
+      "neverRun": "Hasn't run yet"
+    }
+  },
+  "auth": {
+    "login": "Log in",
+    "register": "Register institution",
+    "email": "Email",
+    "password": "Password",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "noAccount": "New institution?",
+    "haveAccount": "Already registered? Log in",
+    "registeredTitle": "Registration received",
+    "registeredHint": "An administrator will review your account. You can log in once it's approved.",
+    "errors": {
+      "INVALID_CREDENTIALS": "Incorrect email or password.",
+      "TOO_MANY_ATTEMPTS": "Too many attempts. Please wait 15 minutes and try again.",
+      "ACCOUNT_PENDING": "Your account is waiting for administrator approval.",
+      "ACCOUNT_SUSPENDED": "This account has been suspended. Contact your administrator.",
+      "ACCOUNT_REJECTED": "This registration was not approved. Contact your administrator.",
+      "VALIDATION_ERROR": "Please check the details you entered.",
+      "EMAIL_TAKEN": "An account with this email already exists.",
+      "CODE_TAKEN": "This AICTE code is already registered.",
+      "GENERIC": "Something went wrong. Please try again."
+    },
+    "fields": {
+      "institutionName": "Institution name",
+      "aicteCode": "AICTE code",
+      "institutionType": "Institution type",
+      "city": "City",
+      "state": "State",
+      "region": "Region",
+      "name": "Your name",
+      "phone": "Phone (optional)",
+      "email": "Email",
+      "password": "Password",
+      "statePlaceholder": "Select a state"
+    },
+    "institutionTypes": {
+      "ENGINEERING": "Engineering",
+      "MANAGEMENT": "Management",
+      "PHARMACY": "Pharmacy",
+      "ARCHITECTURE": "Architecture",
+      "POLYTECHNIC": "Polytechnic",
+      "OTHER": "Other"
+    },
+    "welcome": "Welcome back",
+    "welcomeHint": "Log in to manage security deposits and FDRs.",
+    "loggingIn": "Logging in...",
+    "registerHint": "Create an account for your institution. An administrator approves each registration.",
+    "panel": {
+      "title": "Every security deposit, tracked from submission to release.",
+      "one": "See what was declared and what the bank confirmed, side by side",
+      "two": "Get reminders well before an FDR matures",
+      "three": "Every action is recorded in a tamper-evident audit trail",
+      "back": "Back to home"
+    },
+    "demo": {
+      "title": "Demo accounts",
+      "hint": "Password for all: {password}. Choose an account to fill in the form."
+    },
+    "validation": {
+      "email": "Enter a valid email address.",
+      "password": "Enter your password.",
+      "required": "This field is required.",
+      "aicteCode": "Use 4 to 30 letters, numbers or hyphens.",
+      "phone": "Enter a valid phone number.",
+      "passwordRules": "Your password doesn't meet all the rules below."
+    },
+    "sections": {
+      "institution": "Institution details",
+      "contact": "Contact and login"
+    },
+    "passwordRules": {
+      "length": "At least 10 characters",
+      "lower": "A lowercase letter",
+      "upper": "An uppercase letter",
+      "number": "A number"
+    }
+  },
+  "landing": {
+    "nav": {
+      "label": "Main",
+      "features": "Features",
+      "how": "How it works",
+      "track": "Track FDR",
+      "contact": "Contact",
+      "login": "Login",
+      "register": "Register",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu"
+    },
+    "hero": {
+      "eyebrow": "Smart India Hackathon 2026 · SIH26265",
+      "title": "Security deposits, finally in one trusted place",
+      "subtitle": "Submit, verify, monitor, renew and release FDRs on one secure portal, with a clear line between what an institution declared and what a bank confirmed.",
+      "ctaTrack": "Track an FDR",
+      "ctaExplore": "Explore the lifecycle",
+      "stats": {
+        "fdrs": "FDRs tracked",
+        "institutions": "Institutions",
+        "alerts": "Alerts sent",
+        "hours": "Hours saved (est.)",
+        "note": "Counts come from synthetic demo data. Hours saved is an estimate of 6 hours per FDR."
+      },
+      "card": {
+        "reference": "Reference",
+        "amount": "Amount",
+        "maturity": "Maturity",
+        "daysLeft": "720 days left"
+      }
+    },
+    "lifecycle": {
+      "eyebrow": "Interactive",
+      "title": "Follow one FDR through its life",
+      "subtitle": "Click a stage to see how the status, trust badge and timeline change.",
+      "demoLabel": "Demo FDR",
+      "daysLeft": "{days} days to maturity",
+      "noCountdown": "Countdown finished",
+      "timelineTitle": "Timeline",
+      "explain": {
+        "submitted": "The institution submits details and a scan. Nothing is confirmed yet, so the badge says self-declared.",
+        "verified": "An officer compares the form with the document. The badge rises to document-verified.",
+        "confirmed": "The issuing bank's confirmation is recorded next to the declared details. The badge becomes bank-confirmed.",
+        "alert": "Maturity is close. Reminders go out automatically, and overdue cases escalate.",
+        "renewed": "A new FDR replaces this one. Both are linked, so the full history stays in one chain.",
+        "released": "After document check, scrutiny and authority approval, the deposit is released and the case closes."
+      },
+      "events": {
+        "submitted": "FDR submitted",
+        "verified": "Documents verified",
+        "confirmed": "Bank confirmation recorded",
+        "alert": "60-day reminder sent",
+        "renewed": "Renewed with a new FDR",
+        "released": "Deposit released"
+      },
+      "actors": {
+        "submitted": "Institution",
+        "verified": "Scrutiny officer",
+        "confirmed": "Scrutiny officer",
+        "alert": "System",
+        "renewed": "Scrutiny officer",
+        "released": "Competent authority"
+      }
+    },
+    "track": {
+      "eyebrow": "Track",
+      "title": "Track an FDR",
+      "subtitle": "Enter a portal reference number to see its current status. No login needed.",
+      "label": "FDR reference number",
+      "submit": "Track",
+      "try": "Try a demo reference:",
+      "errors": {
+        "format": "Reference numbers look like FDR-2026-000001.",
+        "notFound": "We couldn't find an FDR with that reference number.",
+        "limit": "Too many lookups. Please try again in 15 minutes.",
+        "generic": "Something went wrong. Please try again."
+      },
+      "result": {
+        "trust": "Trust level",
+        "validity": "Validity",
+        "updated": "Last updated",
+        "privacy": "Amount, bank and institution details are shown only after login."
+      },
+      "validity": {
+        "VALID": "Valid",
+        "EXPIRING": "Expiring soon",
+        "MATURED": "Matured",
+        "FINISHED": "No longer applicable"
+      }
+    },
+    "countdown": {
+      "eyebrow": "Try it",
+      "title": "See how alerts and risk respond",
+      "subtitle": "Drag the slider to change the days to maturity. This uses the portal's real scoring rules.",
+      "sliderLabel": "Days to maturity",
+      "left": "{days} days left",
+      "overdue": "{days} days overdue",
+      "riskLabel": "Risk level",
+      "ladderTitle": "Alert ladder",
+      "sent": "Sent",
+      "waiting": "Waiting",
+      "ladder": {
+        "reminder90": "Reminder at 90 days",
+        "reminder60": "Reminder at 60 days",
+        "reminder30": "Reminder at 30 days",
+        "reminder7": "Final reminder at 7 days",
+        "institution": "Overdue: institution notified",
+        "officer": "7 days overdue: scrutiny officer",
+        "authority": "15 days overdue: competent authority"
+      }
+    },
+    "features": {
+      "eyebrow": "Features",
+      "title": "Everything the deposit lifecycle needs",
+      "subtitle": "Built to replace scattered records and manual letters.",
+      "items": {
+        "repository": {
+          "title": "Central repository",
+          "text": "Records by institution and instrument, with encrypted, versioned documents."
+        },
+        "trust": {
+          "title": "Trust badges",
+          "text": "Self-declared, document-verified or bank-confirmed, shown wherever an FDR appears."
+        },
+        "ocr": {
+          "title": "OCR auto-fill",
+          "text": "Details are read from the scan, and officers compare them with the form."
+        },
+        "risk": {
+          "title": "Explainable risk score",
+          "text": "Red, amber or green, with the exact reasons one hover away."
+        },
+        "alerts": {
+          "title": "Smart alerts",
+          "text": "Reminders at 90, 60, 30 and 7 days, then escalation up the ladder."
+        },
+        "timeline": {
+          "title": "Instrument timeline",
+          "text": "Every event on an FDR, with who did it and when."
+        },
+        "renewal": {
+          "title": "Renewal chain",
+          "text": "Old and new FDRs are linked into one complete deposit history."
+        },
+        "release": {
+          "title": "Release workflow",
+          "text": "Each approval step is enforced on the server, with no shortcuts."
+        },
+        "calendar": {
+          "title": "Maturity calendar",
+          "text": "A month heatmap that shows when many FDRs mature together."
+        },
+        "reports": {
+          "title": "One-click reports",
+          "text": "Export pending, upcoming, missing and overdue cases to Excel or PDF."
+        },
+        "audit": {
+          "title": "Tamper-evident audit",
+          "text": "A hash chain makes any later edit to the records detectable."
+        },
+        "bank": {
+          "title": "Bank verification",
+          "text": "A simulated adapter today, built so a real bank API can plug in later."
+        }
+      }
+    },
+    "how": {
+      "eyebrow": "How it works",
+      "title": "From submission to closure in five steps",
+      "subtitle": "Each step has a clear owner and leaves a record.",
+      "steps": {
+        "submit": {
+          "title": "Submit",
+          "text": "The institution enters details and uploads the FDR."
+        },
+        "scrutinise": {
+          "title": "Scrutinise",
+          "text": "Officers review the case and raise any discrepancies."
+        },
+        "confirm": {
+          "title": "Confirm",
+          "text": "Bank confirmation lifts the trust badge."
+        },
+        "monitor": {
+          "title": "Monitor",
+          "text": "Alerts and risk scores keep maturity dates in view."
+        },
+        "close": {
+          "title": "Renew or release",
+          "text": "The authority approves, and the case closes."
+        }
+      }
+    },
+    "roles": {
+      "eyebrow": "Roles",
+      "title": "One portal, four views",
+      "subtitle": "Everyone sees what they need, and access is enforced on the server.",
+      "items": {
+        "institution": {
+          "title": "Institution",
+          "summary": "Submit and track your deposits.",
+          "one": "Upload FDRs with OCR auto-fill",
+          "two": "See maturity countdowns",
+          "three": "Respond to discrepancies and request release"
+        },
+        "officer": {
+          "title": "Scrutiny Officer",
+          "summary": "Verify cases, riskiest first.",
+          "one": "Work a queue ranked by risk",
+          "two": "Compare declared and extracted values",
+          "three": "Record observations and SLA progress"
+        },
+        "authority": {
+          "title": "Competent Authority",
+          "summary": "Oversee and approve.",
+          "one": "See totals by status and region",
+          "two": "Review overdue and escalated cases",
+          "three": "Approve or reject releases"
+        },
+        "admin": {
+          "title": "Admin",
+          "summary": "Keep the system running.",
+          "one": "Approve institution accounts",
+          "two": "Set reminder and escalation rules",
+          "three": "Check audit integrity and system health"
+        }
+      }
+    },
+    "preview": {
+      "eyebrow": "Dashboard preview",
+      "title": "The whole portfolio at a glance",
+      "subtitle": "A live view of the portal's current figures.",
+      "total": "Total FDRs",
+      "chartTitle": "FDRs by stage",
+      "note": "Live counts from synthetic demo data.",
+      "rows": {
+        "active": "Verified or active",
+        "pending": "Pending verification",
+        "expiring": "Expiring",
+        "discrepancies": "Discrepancies",
+        "matured": "Matured or in release",
+        "finished": "Renewed, released or closed"
+      }
+    },
+    "security": {
+      "eyebrow": "Security and audit",
+      "title": "Built so the records can be trusted",
+      "subtitle": "These are working parts of the portal, not promises.",
+      "points": {
+        "encryption": {
+          "title": "Encrypted documents",
+          "text": "Files are stored with AES-256 encryption, and altered files are rejected."
+        },
+        "hashChain": {
+          "title": "Tamper-evident audit trail",
+          "text": "Each entry is chained to the last with SHA-256, so edits can be detected."
+        },
+        "rbac": {
+          "title": "Role-based access",
+          "text": "Every request is checked on the server against the user's current role and status."
+        },
+        "separation": {
+          "title": "Submitted vs confirmed",
+          "text": "Declared, document and bank values are stored separately and never overwrite each other."
+        }
+      }
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Common questions",
+      "subtitle": "Quick answers about how the portal works.",
+      "items": {
+        "who": {
+          "q": "Who can register?",
+          "a": "Institutions can register themselves. An administrator reviews each account before it can log in."
+        },
+        "trust": {
+          "q": "What do the trust badges mean?",
+          "a": "Self-declared means only the institution has stated it. Document-verified means an officer checked it against the document. Bank-confirmed means a bank source confirmed it."
+        },
+        "bank": {
+          "q": "Is bank verification real?",
+          "a": "Not yet. This prototype uses a simulated adapter and labels it clearly. It's built so a real bank API can replace it."
+        },
+        "documents": {
+          "q": "How are documents protected?",
+          "a": "Uploads are checked for type and size, encrypted before storage, and only available to authorised users."
+        },
+        "tamper": {
+          "q": "How can tampering be detected?",
+          "a": "Each audit entry includes a hash of the one before it. Changing an old entry breaks the chain, and the integrity check finds where."
+        },
+        "language": {
+          "q": "Is the portal available in Hindi?",
+          "a": "Yes. Use the language button in the top bar to switch between English and Hindi. Data entered by users stays as entered."
+        }
+      }
+    },
+    "footer": {
+      "about": "A prototype for the centralised management of security deposits and Fixed Deposit Receipts.",
+      "linksTitle": "Links",
+      "contactTitle": "Contact",
+      "contactText": "Questions about this prototype:",
+      "disclaimer": "Smart India Hackathon 2026 prototype for problem statement SIH26265. Not an official AICTE website. All data shown is synthetic, and bank verification is simulated."
+    }
+  },
+  "fdr": {
+    "fields": {
+      "fdrNumber": "FDR number",
+      "bankName": "Issuing bank",
+      "branchName": "Branch",
+      "ifscCode": "IFSC code (optional)",
+      "amount": "Amount (₹)",
+      "issueDate": "Issue date",
+      "maturityDate": "Maturity date"
+    },
+    "form": {
+      "newTitle": "Submit a new FDR",
+      "newHint": "Upload the scan to fill in the details automatically, then check them.",
+      "editTitle": "Correct {reference}",
+      "editHint": "The change is recorded in the audit trail, and the checks run again.",
+      "scanTitle": "FDR scan",
+      "scanHint": "We read the details from the scan to save you typing.",
+      "chooseFile": "Choose a file or drop it here",
+      "fileRules": "PDF, PNG or JPEG, up to 10 MB",
+      "scanning": "Reading the document...",
+      "ocrDone": "Details filled in from the scan. Please check each one, because automatic reading can make mistakes.",
+      "ocrFailed": "We couldn't read this file automatically. Please enter the details yourself. The file will still be attached.",
+      "fromScan": "From scan",
+      "differs": "The scan says {value}. An officer will see this difference.",
+      "trustNote": "A new FDR starts as self-declared. Its trust badge rises only when an officer or a bank confirms it.",
+      "detailsTitle": "FDR details",
+      "detailsHint": "Enter the details exactly as they appear on the receipt.",
+      "maturityWarning": "The maturity date should be after the issue date. You can still submit, but it will be flagged for review.",
+      "submit": "Submit FDR",
+      "save": "Save correction",
+      "cancel": "Cancel",
+      "submitted": "FDR submitted",
+      "saved": "Correction saved",
+      "validation": {
+        "required": "This field is required.",
+        "fdrNumber": "Use 4 to 40 letters, numbers, hyphens or slashes.",
+        "ifscCode": "An IFSC code looks like SBIN0123456.",
+        "amount": "Enter an amount above zero, with up to 2 decimal places."
+      },
+      "errors": {
+        "DUPLICATE_OWN_FDR": "Your institution has already submitted this FDR number.",
+        "NOT_EDITABLE": "This FDR can no longer be edited.",
+        "FILE_TOO_LARGE": "The file is larger than 10 MB.",
+        "FILE_TYPE": "Only PDF, PNG and JPEG files are accepted.",
+        "FILE_EMPTY": "The file is empty.",
+        "VALIDATION_ERROR": "Please check the details you entered.",
+        "GENERIC": "Something went wrong. Please try again."
+      }
+    },
+    "list": {
+      "titleOwn": "My FDRs",
+      "titleAll": "All FDRs",
+      "count": "{count} found",
+      "new": "Submit new FDR",
+      "search": "Search",
+      "searchHintOwn": "Reference, FDR number or bank",
+      "searchHintAll": "Reference, FDR number, bank or institution",
+      "all": "All",
+      "apply": "Apply",
+      "clear": "Clear",
+      "bank": "Bank",
+      "amount": "Amount",
+      "emptyTitle": "No FDRs match",
+      "emptyHint": "Try changing or clearing the filters.",
+      "pagination": "Pages",
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page {page} of {pages}"
+    },
+    "detail": {
+      "back": "Back to FDRs",
+      "edit": "Correct details",
+      "amount": "Declared amount",
+      "maturity": "Declared maturity",
+      "validity": "Validity",
+      "countdown": "Countdown",
+      "daysLeft": "{days} days left",
+      "overdueBy": "{days} days overdue"
+    },
+    "compare": {
+      "title": "Submitted vs confirmed",
+      "hint": "Each source is kept separate, so you can see exactly who stated what.",
+      "field": "Detail",
+      "submitted": "Submitted by institution",
+      "document": "Read from document",
+      "bank": "Confirmed by bank",
+      "notAvailable": "Not available",
+      "mismatch": "Doesn't match what was submitted",
+      "ocrFailed": "The latest scan could not be read automatically.",
+      "simulated": "Bank confirmation is simulated in this prototype."
+    },
+    "timeline": {
+      "title": "Timeline",
+      "system": "System",
+      "events": {
+        "SUBMITTED": "FDR submitted",
+        "DOCUMENT_UPLOADED": "Document uploaded",
+        "OCR_RUN": "Document read by OCR",
+        "DISCREPANCY_RAISED": "Discrepancy raised",
+        "DISCREPANCY_RESOLVED": "Discrepancy updated",
+        "OBSERVATION_ADDED": "Scrutiny observation added",
+        "BANK_VERIFICATION": "Bank verification (simulated)",
+        "VERIFIED": "FDR verified",
+        "STATUS_CHANGED": "Details or status updated",
+        "ALERT_SENT": "Alert sent",
+        "ESCALATED": "Case escalated",
+        "RENEWED": "Renewed",
+        "REPLACED": "Replaced",
+        "RELEASE_REQUESTED": "Release requested",
+        "RELEASE_DECISION": "Release decision recorded",
+        "RELEASED": "Deposit released",
+        "CLOSED": "Case closed",
+        "DOCUMENTS_CHECKED": "Documents checked by officer",
+        "REASSIGNED": "Case reassigned"
+      }
+    },
+    "discrepancies": {
+      "title": "Discrepancies",
+      "none": "No discrepancies on this FDR.",
+      "declared": "Declared",
+      "extracted": "Read from document",
+      "response": "Institution's response",
+      "yourResponse": "Your response",
+      "tooShort": "Please write at least 5 characters.",
+      "send": "Send response",
+      "responded": "Response sent",
+      "respondFailed": "Couldn't send your response. Please try again.",
+      "status": {
+        "OPEN": "Open",
+        "RESPONDED": "Responded",
+        "RESOLVED": "Resolved",
+        "WAIVED": "Waived"
+      },
+      "types": {
+        "MISSING_FIELD": "A required detail is missing",
+        "MISSING_DOCUMENT": "The FDR scan hasn't been uploaded",
+        "MATURITY_BEFORE_ISSUE": "The maturity date is not after the issue date",
+        "AMOUNT_MISMATCH": "The declared amount differs from the document",
+        "DUPLICATE_FDR_NUMBER": "This FDR number is on record for another institution",
+        "BANK_MISMATCH": "The declared bank differs from the document",
+        "OTHER": "Other discrepancy"
+      },
+      "reviewNote": "Review note",
+      "waive": "Accept and close",
+      "resolve": "Mark resolved",
+      "waiveHint": "This automatic check still applies. Accepting records your reason. If the institution corrects the details, it clears by itself.",
+      "resolveHint": "Close this once it has been dealt with. Your note goes on the timeline."
+    },
+    "documents": {
+      "title": "Documents",
+      "version": "Version {version}",
+      "preview": "Preview",
+      "hide": "Hide",
+      "download": "Download",
+      "present": "uploaded",
+      "requiredMissing": "required, missing",
+      "optional": "optional",
+      "history": "Earlier versions ({count})",
+      "type": "Document type",
+      "file": "File",
+      "upload": "Upload",
+      "uploaded": "Document uploaded and encrypted",
+      "scanNote": "A new scan becomes the current version, and is read by OCR. Earlier versions are kept.",
+      "types": {
+        "FDR_SCAN": "FDR scan",
+        "COVERING_LETTER": "Covering letter",
+        "BANK_LETTER": "Bank letter",
+        "RENEWAL_PROOF": "Renewal proof",
+        "RELEASE_APPLICATION": "Release application",
+        "OTHER": "Other document"
+      },
+      "errors": {
+        "FILE_REQUIRED": "Choose a file first.",
+        "FILE_TOO_LARGE": "The file is larger than 10 MB.",
+        "FILE_TYPE": "Only PDF, PNG and JPEG files are accepted.",
+        "FILE_EMPTY": "The file is empty.",
+        "UPLOAD_NOT_ALLOWED": "This document can't be changed at this stage.",
+        "GENERIC": "Something went wrong. Please try again."
+      }
+    },
+    "releaseStatus": {
+      "REQUESTED": "Requested",
+      "DOCUMENT_CHECK": "Document check",
+      "SCRUTINY": "In scrutiny",
+      "AUTHORITY_APPROVAL": "Awaiting authority approval",
+      "APPROVED": "Approved",
+      "REJECTED": "Rejected",
+      "CLOSED": "Closed"
+    },
+    "scrutiny": {
+      "title": "Scrutiny",
+      "hint": "Only the next steps allowed for this FDR are shown.",
+      "assignedElsewhere": "This case is assigned to another officer, so you can only read it.",
+      "bankSimulated": "Bank verification is simulated: no real bank is contacted.",
+      "blockedTitle": "Before this FDR can be approved:",
+      "blockers": {
+        "NO_SCAN": "A current FDR scan is needed",
+        "NOT_VERIFIED": "Check the documents or confirm with the bank",
+        "UNRESOLVED": "Close all the open discrepancies"
+      },
+      "actions": {
+        "START": "Start scrutiny",
+        "VERIFY_DOCUMENTS": "Mark documents verified",
+        "BANK_VERIFY": "Verify with bank (simulated)",
+        "SEND_BACK": "Send discrepancies to institution",
+        "APPROVE": "Approve as verified",
+        "ACTIVATE": "Activate FDR",
+        "CLOSE": "Close case"
+      },
+      "done": {
+        "START": "Scrutiny started, and the case is assigned to you",
+        "OBSERVE": "Observation saved",
+        "RAISE": "Discrepancy raised",
+        "SEND_BACK": "Sent to the institution",
+        "CLOSE_DISCREPANCY": "Discrepancy closed",
+        "VERIFY_DOCUMENTS": "Documents marked as verified",
+        "APPROVE": "FDR approved as verified",
+        "ACTIVATE": "FDR activated",
+        "LINK_SUCCESSOR": "New FDR linked",
+        "CLOSE": "Case closed"
+      },
+      "bankResult": {
+        "CONFIRMED": "Simulated bank check: confirmed",
+        "NOT_FOUND": "Simulated bank check: no record found. A discrepancy was raised.",
+        "MISMATCH": "Simulated bank check: details differ. A discrepancy was raised.",
+        "ERROR": "Simulated bank check: failed"
+      },
+      "raiseTitle": "Raise a discrepancy",
+      "raiseMessage": "What needs to be corrected or explained? The institution will see this.",
+      "severity": "Severity",
+      "severities": {
+        "LOW": "Low",
+        "MEDIUM": "Medium",
+        "HIGH": "High"
+      },
+      "raise": "Raise discrepancy",
+      "linkTitle": "Link a renewal or replacement",
+      "linkHint": "Enter the portal reference of the new FDR from the same institution. It must mature later than this one.",
+      "linkType": "Link type",
+      "linkRenewal": "Renewal",
+      "linkReplacement": "Replacement",
+      "linkReference": "New FDR reference, like FDR-2026-000123",
+      "link": "Link",
+      "observeTitle": "Add a scrutiny observation",
+      "observePlaceholder": "Internal note, not shown to the institution",
+      "observe": "Save observation",
+      "observationsTitle": "Observations",
+      "errors": {
+        "ASSIGNED_ELSEWHERE": "This case is assigned to another officer.",
+        "ACTION_NOT_AVAILABLE": "This action isn't available at this stage. Please refresh the page.",
+        "SUCCESSOR_NOT_FOUND": "No FDR with that reference at this institution.",
+        "SUCCESSOR_SAME": "An FDR can't succeed itself.",
+        "SUCCESSOR_LINKED": "That FDR is already part of a renewal chain.",
+        "SUCCESSOR_OLDER": "The new FDR must mature after this one.",
+        "SUCCESSOR_FINISHED": "That FDR has already finished.",
+        "VALIDATION_ERROR": "Please check what you entered. Notes need at least 5 characters.",
+        "GENERIC": "Something went wrong. Please try again."
+      }
+    },
+    "chain": {
+      "title": "Renewal chain",
+      "hint": "The full history of this deposit, oldest first.",
+      "RENEWAL": "Renewed as",
+      "REPLACEMENT": "Replaced by"
+    },
+    "release": {
+      "title": "Release / refund",
+      "hint": "Request, document check, scrutiny, authority approval, then closure. Each step is enforced by the server.",
+      "reason": "Reason for release",
+      "decision": "Decision",
+      "note": "Note (optional)",
+      "noteRequired": "Note (a reason is required to reject)",
+      "requestTitle": "Request release of this deposit",
+      "requestPlaceholder": "Why should this deposit be released?",
+      "requestHint": "You will also need to upload a release application under Documents, for the document check.",
+      "requestSubmit": "Request release",
+      "actions": {
+        "ADVANCE": "Complete this step",
+        "APPROVE": "Approve release",
+        "REJECT": "Reject release",
+        "CLOSE": "Close case"
+      },
+      "done": {
+        "REQUEST": "Release requested",
+        "ADVANCE": "Moved to the next step",
+        "APPROVE": "Release approved",
+        "REJECT": "Release rejected",
+        "CLOSE": "Case closed"
+      },
+      "blockers": {
+        "NO_APPLICATION": "The institution needs to upload a release application first.",
+        "UNRESOLVED": "All open discrepancies must be closed first."
+      },
+      "errors": {
+        "RELEASE_NOT_AVAILABLE": "This FDR can't be released at this stage.",
+        "RELEASE_ACTION_NOT_AVAILABLE": "This action isn't available at this step. Please refresh the page.",
+        "RELEASE_BLOCKED_NO_APPLICATION": "The institution needs to upload a release application first.",
+        "RELEASE_BLOCKED_UNRESOLVED": "All open discrepancies must be closed first.",
+        "NOTE_REQUIRED": "Please give a reason.",
+        "VALIDATION_ERROR": "Please check what you entered. A reason needs at least 10 characters.",
+        "GENERIC": "Something went wrong. Please try again."
+      }
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "This page does not exist, or you do not have access to it.",
+    "home": "Go to home page"
+  },
+  "calendar": {
+    "title": "Maturity calendar",
+    "hint": "Darker days have more FDRs maturing. Renewed, released and closed FDRs aren't counted.",
+    "previous": "Previous month",
+    "next": "Next month",
+    "today": "This month",
+    "legend": "FDRs maturing:",
+    "monthTotal": "{count} this month",
+    "dayLabel": "{date}: {count} FDRs maturing",
+    "dayTitle": "Maturing on {date}",
+    "dayEmpty": "No FDRs mature on this day.",
+    "clickHint": "Choose a highlighted day to see its FDRs."
+  },
+  "notifications": {
+    "title": "Notifications",
+    "unreadCount": "{count} unread",
+    "unread": "Unread",
+    "markAll": "Mark all as read",
+    "failed": "Something went wrong. Please try again.",
+    "empty": "No notifications yet",
+    "emptyHint": "Reminders, escalations and case updates will appear here.",
+    "text": {
+      "REMINDER": "{reference} matures in {days} days",
+      "REMINDER_BODY": "Please plan its renewal or release before the maturity date.",
+      "OVERDUE": "{reference} is {days} days past maturity",
+      "OVERDUE_BODY": "Please renew it or request its release as soon as possible.",
+      "ESCALATED": "Escalated: {reference} is {days} days past maturity",
+      "ESCALATED_BODY": "The institution has not acted on this overdue FDR. Please review the case.",
+      "DISCREPANCY": "Discrepancy to answer on {reference}",
+      "DISCREPANCY_BODY": "An officer needs a correction or an explanation from you.",
+      "RELEASE_NEW": "New release request on {reference}",
+      "RELEASE_NEW_BODY": "Start the document check.",
+      "RELEASE_APPROVAL_NEEDED": "{reference} needs your release decision",
+      "RELEASE_APPROVAL_NEEDED_BODY": "Scrutiny is complete. Please approve or reject the release.",
+      "RELEASE_PROGRESS": "Release request moved forward on {reference}",
+      "RELEASE_PROGRESS_BODY": "Your request has moved to the next step.",
+      "RELEASE_APPROVED": "Release approved for {reference}",
+      "RELEASE_APPROVED_BODY": "The competent authority has approved your release request.",
+      "RELEASE_REJECTED": "Release rejected for {reference}",
+      "RELEASE_REJECTED_BODY": "Open the FDR to see the reason. You can request again.",
+      "RELEASE_CLOSED": "Case closed for {reference}",
+      "RELEASE_CLOSED_BODY": "The release is complete and the case is closed.",
+      "ACCOUNT_APPROVED": "Your account has been approved",
+      "ACCOUNT_APPROVED_BODY": "You can now submit and track your institution's FDRs.",
+      "CASE_ASSIGNED": "{reference} has been assigned to you",
+      "CASE_ASSIGNED_BODY": "An administrator moved this case to you.",
+      "BANK_NOT_FOUND": "The bank has no record of this FDR (simulated check).",
+      "BANK_MISMATCH": "The bank's record differs from the declared details (simulated check).",
+      "ACCOUNTS_WAITING": "{count} institutions are awaiting approval",
+      "ACCOUNTS_WAITING_BODY": "New registrations need your review."
+    }
+  },
+  "alerts": {
+    "title": "Reminder and escalation rules",
+    "hint": "The check runs every day at 6:00 AM India time. Changes apply from the next run.",
+    "runNow": "Run check now",
+    "ran": "Checked {checked} FDRs: {reminders} reminders, {escalations} escalations.",
+    "failed": "Something went wrong. Please try again.",
+    "ruleExists": "That rule already exists.",
+    "invalidDays": "Enter a number of days from 1 to 365.",
+    "reminders": "Reminders",
+    "escalations": "Escalations",
+    "reminderRule": "{days} days before maturity, to the institution",
+    "escalationRule": "{days} days overdue, to {level}",
+    "turnOff": "Turn off",
+    "turnOn": "Turn on",
+    "addKind": "Add a rule",
+    "addDays": "Days",
+    "addLevel": "Send to",
+    "add": "Add",
+    "levels": {
+      "INSTITUTION": "the institution",
+      "SCRUTINY_OFFICER": "the scrutiny officer",
+      "COMPETENT_AUTHORITY": "the competent authority"
+    }
+  },
+  "regions": {
+    "NORTH": "North",
+    "SOUTH": "South",
+    "EAST": "East",
+    "WEST": "West",
+    "CENTRAL": "Central",
+    "NORTH_EAST": "North-East"
+  },
+  "reports": {
+    "title": "Reports",
+    "hint": "Download the latest figures as an Excel or PDF file. Each download is recorded in the audit log.",
+    "rows": "{count} rows",
+    "excel": "Excel",
+    "pdf": "PDF",
+    "languageNote": "Report files are in English.",
+    "types": {
+      "pending": {
+        "title": "Pending verifications",
+        "text": "Cases still being checked, oldest first."
+      },
+      "upcoming": {
+        "title": "Upcoming maturities",
+        "text": "FDRs maturing in the next 90 days."
+      },
+      "missing": {
+        "title": "Missing documents",
+        "text": "Open FDRs with no current scan."
+      },
+      "overdue": {
+        "title": "Overdue cases",
+        "text": "FDRs past maturity and not yet renewed or released."
+      },
+      "region": {
+        "title": "Region-wise summary",
+        "text": "Institutions, FDRs and amounts held by region."
+      }
+    }
+  },
+  "audit": {
+    "title": "Audit log",
+    "hint": "Every action is chained to the one before it with SHA-256, so any later edit can be detected.",
+    "integrityTitle": "Integrity check",
+    "integrityHint": "Recalculates every hash and checks each link in the chain.",
+    "verify": "Verify integrity",
+    "simulate": "Tamper simulation",
+    "restore": "Restore the entry",
+    "simulationStarted": "One stored entry has been changed. Now verify integrity.",
+    "simulationEnded": "The entry has been restored.",
+    "simulationActive": "Tamper simulation is running: entry {entry} has been changed in the database.",
+    "simulationNext": "Verify integrity to see it caught, then restore the entry.",
+    "intact": "Chain intact. {count} entries checked, and no changes found.",
+    "broken": "Tampering detected",
+    "checkedBefore": "{count} entries were fine before this point.",
+    "showEntry": "Show entry {entry}",
+    "reasons": {
+      "HASH_MISMATCH": "The contents of an entry no longer match its stored hash.",
+      "BROKEN_LINK": "An entry doesn't link to the one before it, so entries were removed or forged.",
+      "HEAD_MISMATCH": "The newest entries are missing from the end of the chain."
+    },
+    "failed": "Something went wrong. Please try again.",
+    "actor": "Who",
+    "action": "Action",
+    "allActions": "All actions",
+    "apply": "Apply",
+    "clear": "Clear",
+    "empty": "No entries match.",
+    "columns": {
+      "entry": "Entry",
+      "time": "Time (IST)",
+      "actor": "Who",
+      "action": "Action",
+      "subject": "On",
+      "hash": "Hash",
+      "details": "Details"
+    },
+    "hashFull": "Hash",
+    "prevHash": "Previous hash",
+    "view": "View",
+    "pagination": "Pages",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page {page} of {pages}"
+  },
+  "admin": {
+    "usersTitle": "Users and roles",
+    "usersCount": "{count} found",
+    "usersEmpty": "No users match.",
+    "createTitle": "Add a staff account",
+    "createHint": "For officers, authorities and admins. Institutions register themselves.",
+    "name": "Name",
+    "email": "Email",
+    "role": "Role",
+    "status": "Status",
+    "lastLogin": "Last login",
+    "actions": "Actions",
+    "never": "Never",
+    "you": "You",
+    "create": "Add account",
+    "passwordOnce": "Temporary password. It won't be shown again, so copy it now and share it securely:",
+    "copy": "Copy",
+    "copied": "Copied",
+    "search": "Search",
+    "all": "All",
+    "apply": "Apply",
+    "clear": "Clear",
+    "approve": "Approve",
+    "reject": "Reject",
+    "approved": "Account approved",
+    "rejected": "Registration rejected",
+    "suspend": "Suspend",
+    "suspended": "Account suspended, and any session ended",
+    "activate": "Activate",
+    "activated": "Account activated",
+    "roleChanged": "Role changed, and any session ended",
+    "statuses": {
+      "PENDING_APPROVAL": "Pending approval",
+      "ACTIVE": "Active",
+      "SUSPENDED": "Suspended",
+      "REJECTED": "Rejected"
+    },
+    "reassignTitle": "Reassign case",
+    "officer": "Scrutiny officer",
+    "chooseOfficer": "Choose an officer",
+    "reassign": "Reassign",
+    "reassigned": "Case reassigned",
+    "pagination": "Pages",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page {page} of {pages}",
+    "errors": {
+      "EMAIL_TAKEN": "An account with this email already exists.",
+      "CANNOT_CHANGE_SELF": "You can't change your own account.",
+      "ROLE_NOT_CHANGEABLE": "Institution accounts can't be moved to a staff role.",
+      "NOT_AN_OFFICER": "Choose an active scrutiny officer.",
+      "VALIDATION_ERROR": "Please check what you entered.",
+      "GENERIC": "Something went wrong. Please try again."
+    }
+  },
+  "account": {
+    "title": "My account",
+    "passwordTitle": "Change password",
+    "passwordHint": "Your other sessions will be logged out.",
+    "current": "Current password",
+    "new": "New password",
+    "rule": "At least 10 characters, with a lowercase letter, an uppercase letter and a number.",
+    "confirm": "Confirm new password",
+    "submit": "Change password",
+    "changed": "Password changed",
+    "errors": {
+      "WRONG_PASSWORD": "The current password is incorrect.",
+      "SAME_PASSWORD": "Choose a password different from your current one.",
+      "MISMATCH": "The two new passwords don't match.",
+      "TOO_MANY_ATTEMPTS": "Too many attempts. Please wait 15 minutes and try again.",
+      "VALIDATION_ERROR": "The new password doesn't meet the rules.",
+      "GENERIC": "Something went wrong. Please try again."
+    }
+  },
+  "errorPage": {
+    "title": "Something went wrong",
+    "description": "We couldn't load this page. Your data is safe. Please try again.",
+    "retry": "Try again",
+    "home": "Go to home page"
+  }
+}

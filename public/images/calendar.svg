@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Calendar with highlighted days">
+  <rect x="26" y="38" width="148" height="136" rx="16" fill="#fff"/>
+  <path d="M26 54a16 16 0 0116-16h116a16 16 0 0116 16v22H26z" fill="#1d3fa8"/>
+  <rect x="58" y="24" width="10" height="30" rx="5" fill="#e8960c"/>
+  <rect x="132" y="24" width="10" height="30" rx="5" fill="#e8960c"/>
+  <g fill="#dde3f0">
+    <rect x="42" y="90" width="20" height="20" rx="5"/><rect x="70" y="90" width="20" height="20" rx="5"/><rect x="98" y="90" width="20" height="20" rx="5"/><rect x="126" y="90" width="20" height="20" rx="5"/>
+    <rect x="42" y="118" width="20" height="20" rx="5"/><rect x="126" y="118" width="20" height="20" rx="5"/>
+    <rect x="70" y="146" width="20" height="20" rx="5"/><rect x="98" y="146" width="20" height="20" rx="5"/>
+  </g>
+  <rect x="70" y="118" width="20" height="20" rx="5" fill="#ffd27a"/>
+  <rect x="98" y="118" width="20" height="20" rx="5" fill="#e8960c"/>
+  <rect x="42" y="146" width="20" height="20" rx="5" fill="#ffd27a"/>
+  <rect x="126" y="146" width="20" height="20" rx="5" fill="#1d3fa8"/>
+</svg>

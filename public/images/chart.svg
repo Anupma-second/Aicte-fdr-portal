@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Rising bar chart">
+  <rect x="24" y="30" width="152" height="140" rx="16" fill="#fff"/>
+  <g fill="#dde3f0"><rect x="42" y="150" width="116" height="3" rx="1.500"/></g>
+  <rect x="46" y="112" width="20" height="38" rx="5" fill="#a9bdf5"/>
+  <rect x="76" y="92" width="20" height="58" rx="5" fill="#6f90ea"/>
+  <rect x="106" y="72" width="20" height="78" rx="5" fill="#3f68e0"/>
+  <rect x="136" y="50" width="20" height="100" rx="5" fill="#1d3fa8"/>
+  <path d="M50 96l30-22 30-16 36-20" fill="none" stroke="#e8960c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="146" cy="38" r="6" fill="#e8960c"/>
+</svg>
